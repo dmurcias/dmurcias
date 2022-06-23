@@ -4,6 +4,7 @@
     This component was created to list all related locations by product, 
     and the end-user has the possibility to update the Quantity of products by location.
     version. 1.00
+    Hello this is mi second change
 */
 import { LightningElement, wire, track,api } from 'lwc';
 // import the apex class to get al realted location by current product.
