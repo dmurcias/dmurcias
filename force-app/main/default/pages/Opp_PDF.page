@@ -1,0 +1,24 @@
+<apex:page standardController="Opportunity" renderAs="pdf" showHeader="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false">  
+    <head>
+        <style> .titulo 
+            {background-color:#BCD531;
+            color:white;
+            font-family: Arial, Helvetica, sans-serif;
+            border-radius:50px;
+            text-align:center;}
+            .imageStyle
+            {width: 150px;
+            height: 150px;
+            left:350px;}
+        </style>
+    </head>  
+    <apex:image url="https://danimurs-dev-ed--c.na89.visual.force.com/resource/1579531453000/Globant?" styleClass="imageStyle"/>
+    <h3 class="titulo">Entrega de propuesta</h3>
+    <apex:panelGrid columns="1" width="100%">
+        <apex:outputText value="Fecha: {!today()}" />
+        <apex:outputText value="Cliente: {!Opportunity.Account.Name}"/>
+        <apex:outputText value="Oportunidad: {!Opportunity.Name}" />
+        <apex:outputText value="Valor de la propuesta: {!Opportunity.Amount}"/>
+        <apex:outputText value="Vigencia de la propuesta: {!Opportunity.CloseDate}"/>
+    </apex:panelGrid>
+</apex:page>

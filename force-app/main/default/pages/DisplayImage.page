@@ -1,0 +1,30 @@
+<apex:page showHeader="false" standardStylesheets="true" controller="DataSelect"  >
+    <apex:image value="https://developer.salesforce.com/files/salesforce-developer-network-logo.png"/>
+    
+    <apex:form >
+        <apex:pageBlock title="User">
+            <apex:pageBlockSection title="Name">
+                {!$User.FirstName}
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="LastName">
+                {!$User.LastName}           
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+    <apex:form >
+        <apex:pageBlock title="List User">
+            <apex:pageBlockSection title="Select one user">
+                <apex:selectList value="{!selectedCountry2}" multiselect="false" size="1">
+                    <apex:selectOptions value="{!countriesOptions}"/>
+                </apex:selectList>
+                <apex:selectList value="{!selectedCategories}" multiselect="false" size="1">
+                    <apex:selectOptions value="{!User}"/>
+                </apex:selectList>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        <apex:pageBlock title="List User">
+            <apex:commandButton onclick="{!result}" />
+            <apex:inputText id="Input" value="{!Res}" />
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,18 @@
+<apex:page standardController="Cliente__c" extensions="VerEmail">
+    <apex:sectionHeader subtitle="Nuevo Cliente" title="cliente" />
+    <apex:form >
+        <apex:pageBlock title="Nuevo Cliente" mode="edit">  
+            <apex:messages />
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Guardar" action="{!ValidarEmail}" disabled="{!Show}"  />
+                <apex:commandButton value="Cancelar" action="{!cancel}" />                
+            </apex:pageBlockButtons>
+            <apex:pageBLockSection title="Información del Cliente Nuevo" columns="2">
+                <apex:inputField value="{!Cliente__c.Name}"/>
+                <apex:inputField value="{!Cliente__c.CORREO_ELECTR_NICO__c}"/>
+                <apex:inputField value="{!Cliente__c.N_MERO_DE_DOCUMENTO__c}"/>
+                <apex:inputField value="{!Cliente__c.TIPO_DE_DOCUMENTO__c}"/>
+            </apex:pageBLockSection>  
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

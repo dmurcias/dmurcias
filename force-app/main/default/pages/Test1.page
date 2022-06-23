@@ -1,0 +1,20 @@
+<apex:page standardController="Opportunity" extensions="ClassTest1">
+    <apex:sectionHeader subtitle="Creación de Opportunity" title="Opportunity" />
+    <apex:form >
+        <apex:pageBlock title="Crear Opportunity" mode="edit">
+            <apex:messages />
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Guardar" action="{!SaveOppRecord}" />
+                <apex:commandButton value="Cancelar" action="{!cancel}" />
+            </apex:pageBlockButtons>
+            <apex:pageBLockSection title="Información de la opportunidad" columns="2">
+                <apex:inputField value="{!Opportunity.Name}"/>
+                <apex:inputField value="{!Opportunity.StageName}"/>
+                <apex:inputField value="{!Opportunity.CloseDate}"/>
+                <apex:inputField value="{!Opportunity.AccountId}"/>
+                <apex:inputField value="{!Opportunity.Amount}"/>
+                <apex:inputTextarea value="{!Opportunity.Description}" cols="50" rows="5" />
+            </apex:pageBLockSection>       
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

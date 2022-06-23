@@ -1,0 +1,7 @@
+<apex:page >
+  <!-- Begin Default Content REMOVE THIS -->
+  <h1>Create Account</h1>
+  This is your new Page
+  <flow:interview name="Quick_Account"></flow:interview>
+  <!-- End Default Content REMOVE THIS -->
+</apex:page>
