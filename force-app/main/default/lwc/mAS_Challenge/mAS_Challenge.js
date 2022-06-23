@@ -3,9 +3,10 @@
     crated Date: 02/03/21
     This component was created to list all related locations by product, 
     and the end-user has the possibility to update the Quantity of products by location.
-    version. 1.0
+    version. 1.00
+    Hello this is mi second change
 */
-import { LightningElement, wire,api } from 'lwc';
+import { LightningElement, wire, track,api } from 'lwc';
 // import the apex class to get al realted location by current product.
 import getRelLocation from '@salesforce/apex/lwcMASChallengeControler.getRelatedLocation';
 // to update the record I used the uiRecordApi reference 
@@ -33,12 +34,12 @@ export default class InlineEditTable extends LightningElement {
 
 columnsLoc=columnsLoc;
 @api recordId;
-//@track wiredResults = [];
+@track wiredResults = [];
 saveDraftValuesLoc = [];
 locations = [];
 // use wire function to execute the getRelLocation apex class with the recordId as input parameter.
 @wire(getRelLocation, {productId:'$recordId' }) locList(result) {
-    //this.wiredResults = result;
+    this.wiredResults = result;
     if (result.data) {
         console.log('data:' + JSON.stringify(result.data));
         let responseArray = [];
@@ -73,7 +74,7 @@ handleSave(event) {
 
     // Updateing the records using the UiRecordAPi
     const promises = recordInputs.map(recordInput => updateRecord(recordInput));
-    Promise.all(promises).then(() => {
+    Promise.all(promises).then(res => {
         this.dispatchEvent(
             new ShowToastEvent({
                 title: 'Success',
@@ -83,7 +84,7 @@ handleSave(event) {
         );
         this.saveDraftValuesLoc = [];
         return this.refresh();
-    }).catch(() => {
+    }).catch(error => {
         this.dispatchEvent(
             new ShowToastEvent({
                 title: 'Error',
