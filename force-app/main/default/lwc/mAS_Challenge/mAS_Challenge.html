@@ -1,0 +1,26 @@
+<!--
+    Created by: Daniel Murcia Suarez
+    crated Date: 02/03/21
+    This component was created to list all related locations by product, 
+    and the end-user has the possibility to update the Quantity of products by location.
+    version. 1.0
+-->
+<template>
+<lightning-card title="Product Inventory">
+    <template if:true={locations}>
+        <!-- sldsValidatorIgnoreNextLine -->
+        <lightning-datatable key-field="Id" 
+                                data={locations} 
+                                columns={columnsLoc} 
+                                onsave={handleSave}
+                                draft-values={saveDraftValuesLoc} 
+                                hide-checkbox-column 
+                                show-row-number-column>
+        </lightning-datatable>
+    </template>
+</lightning-card>
+<lightning-card>
+        <p>Hello, {greeting}!</p>
+        <lightning-input label="Name" value={greeting} onchange={handleChange}></lightning-input>
+</lightning-card>
+</template>
